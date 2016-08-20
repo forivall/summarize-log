@@ -1,0 +1,27 @@
+{
+  "name": "summarize-log",
+  "version": "0.1.0",
+  "description": "",
+  "bin": {
+    "summarize-log": "./bin/summarize-log.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.test.js"
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "repository": "forivall/summarize-log",
+  "keywords": [],
+  "author": "Jordan J Klassen <forivall@gmail.com>",
+  "devDependencies": {
+    "eslint-config-mxo": "^0.2.0",
+    "nyc": "^8.1.0",
+    "tap": "^6.3.2",
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "extends": "mxo"
+  }
+}
