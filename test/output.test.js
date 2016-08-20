@@ -21,10 +21,10 @@ input
   lastOutput = data;
 })
 .on('end', function () {
-  tap.equal(lastOutput, 'time: 6, bytes: 8, lines: 10\n', 'had output');
+  tap.equal(lastOutput, 'time: 4, bytes: 8, lines: 10, rate: 2000 bytes/s\n', 'had output');
 });
 
-input.write({lines: 10, bytes: 8, time: 6});
+input.write({lines: 10, bytes: 8, time: 4});
 process.nextTick(function () {
   input.end();
 });

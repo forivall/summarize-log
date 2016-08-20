@@ -23,7 +23,7 @@ input.pipe(new summarize.LogParser({defaultEncoding: 'utf8', decodeStrings: fals
   // $ wc -c < ./test/fixtures/ipsum.log
   tap.equal(lastObject.bytes, 43, 'number of bytes');
   // TODO: mock Date (lolex?) to test the value
-  tap.ok(lastObject.time, 'time is recorded');
+  tap.ok(typeof lastObject.time === 'number', 'time is recorded');
 });
 
 input.write('this is some text\nwinnewline:\r\nmacnewline:\r');
