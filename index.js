@@ -41,7 +41,7 @@ LogParser.prototype._transform = function _transform(chunk, encoding, callback) 
       c = chunk.charCodeAt(i);
       if (c === 13) {
         lines++;
-        if (chunk[i + 1] === 10) i++;
+        if (chunk.charCodeAt(i + 1) === 10) i++;
       } else if (c === 10) {
         lines++;
       }

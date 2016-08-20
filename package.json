@@ -7,7 +7,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.test.js"
+    "test": "tap test/*.test.js",
+    "test-cov": "nyc --reporter=lcov npm test",
+    "lint": "xo"
   },
   "engines": {
     "node": ">= 4"
