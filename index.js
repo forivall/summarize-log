@@ -6,7 +6,7 @@ const util = require('util');
 module.exports.LogParser = LogParser;
 function LogParser(options) {
   if (options === undefined) options = {};
-  options.readableObjectMode = true;
+  options = Object.assign({readableObjectMode: true}, options);
   stream.Transform.call(this, options);
 
   this.startTime = options.startTime === undefined ? Date.now() : options.startTime;
@@ -60,7 +60,7 @@ LogParser.prototype._transform = function _transform(chunk, encoding, callback) 
 module.exports.LogOutput = LogOutput;
 function LogOutput(options) {
   if (options === undefined) options = {};
-  options.writableObjectMode = true;
+  options = Object.assign({writableObjectMode: true}, options);
   stream.Transform.call(this, options);
   // TODO: add a color option, use chalk
 }
@@ -72,7 +72,7 @@ LogOutput.prototype._transform = function _transform(chunk, encoding, callback) 
     'time: ' + String(chunk.time) +
     ', bytes: ' + String(chunk.bytes) +
     ', lines: ' + String(chunk.lines) +
-    ', rate: ' + (chunk.bytes / chunk.time * 1000).toFixed(2) + ' bytes/s' +
+    ', rate: ' + (chunk.bytes / chunk.time * 1000).toPrecision(4) + ' bytes/s' +
     '\n'
   );
-}
+};
