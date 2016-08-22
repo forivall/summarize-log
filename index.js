@@ -72,7 +72,7 @@ LogOutput.prototype._transform = function _transform(chunk, encoding, callback) 
     'time: ' + String(chunk.time) +
     ', bytes: ' + String(chunk.bytes) +
     ', lines: ' + String(chunk.lines) +
-    ', rate: ' + String(chunk.bytes / chunk.time * 1000) + ' bytes/s' +
+    ', rate: ' + (chunk.bytes / chunk.time * 1000).toFixed(2) + ' bytes/s' +
     '\n'
   );
 }
