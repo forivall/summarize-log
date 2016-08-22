@@ -2,6 +2,7 @@
 
 const stream = require('stream');
 const util = require('util');
+const chalk = require('chalk');
 
 module.exports.LogParser = LogParser;
 function LogParser(options) {
@@ -62,17 +63,17 @@ function LogOutput(options) {
   if (options === undefined) options = {};
   options = Object.assign({writableObjectMode: true}, options);
   stream.Transform.call(this, options);
-  // TODO: add a color option, use chalk
+  this.chalk = new chalk.constructor({enabled: Boolean(options.color)});
 }
 
 util.inherits(LogOutput, stream.Transform);
 
 LogOutput.prototype._transform = function _transform(chunk, encoding, callback) {
   callback(null,
-    'time: ' + String(chunk.time) +
-    ', bytes: ' + String(chunk.bytes) +
-    ', lines: ' + String(chunk.lines) +
-    ', rate: ' + (chunk.bytes / chunk.time * 1000).toPrecision(4) + ' bytes/s' +
+    this.chalk.cyan(this.chalk.bold('time: ') + String(chunk.time)) + ', ' +
+    this.chalk.magenta(this.chalk.bold('bytes: ') + String(chunk.bytes)) + ', ' +
+    this.chalk.blue(this.chalk.bold('lines: ') + String(chunk.lines)) + ', ' +
+    this.chalk.yellow(this.chalk.bold('rate: ') + (chunk.bytes / chunk.time * 1000).toPrecision(4) + ' bytes/s') +
     '\n'
   );
 };

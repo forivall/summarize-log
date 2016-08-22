@@ -25,5 +25,8 @@
   },
   "xo": {
     "extends": "mxo"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3"
   }
 }
