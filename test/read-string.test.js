@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const stream = require('stream');
 
 const tap = require('tap');
@@ -9,7 +7,7 @@ const summarize = require('../index');
 tap.plan(3);
 
 var input = new stream.PassThrough({defaultEncoding: 'utf8', encoding: 'utf8', decodeStrings: false});
-var lastOutput;
+var lastObject;
 
 input.pipe(new summarize.LogParser({defaultEncoding: 'utf8', decodeStrings: false}))
 .on('error', function (err) {

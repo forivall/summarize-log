@@ -4,8 +4,6 @@ const path = require('path');
 
 const tap = require('tap');
 
-const summarize = require('../index');
-
 tap.plan(2);
 
 const proc = childProc.execFile(process.execPath, [
