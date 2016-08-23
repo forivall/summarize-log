@@ -22,6 +22,5 @@ fs.createReadStream(path.join(__dirname, './fixtures/newlines.log'))
   tap.equal(lastObject.lines, 2, 'number of lines');
   // $ wc -c < ./test/fixtures/newlines.log
   tap.equal(lastObject.bytes, 9, 'number of bytes');
-  // TODO: mock Date (lolex?) to test the value
   tap.ok(lastObject.time, 'time is recorded');
 });
