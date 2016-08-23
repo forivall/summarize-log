@@ -5,6 +5,8 @@ const tap = require('tap');
 
 const summarize = require('../index');
 
+// test the proper parsing of different newline formats
+
 tap.plan(3);
 
 var lastObject;

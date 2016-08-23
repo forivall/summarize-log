@@ -4,6 +4,9 @@ const tap = require('tap');
 
 const summarize = require('../index');
 
+// test the string path of LogParser#_transform, which is only hit when
+// `decodeStrings: false` and strings are passed in
+
 tap.plan(3);
 
 var input = new stream.PassThrough({defaultEncoding: 'utf8', encoding: 'utf8', decodeStrings: false});

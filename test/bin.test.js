@@ -4,6 +4,8 @@ const path = require('path');
 
 const tap = require('tap');
 
+// minimally test the cli
+
 tap.plan(2);
 
 const proc = childProc.execFile(process.execPath, [

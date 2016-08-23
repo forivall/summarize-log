@@ -16,8 +16,8 @@ const summarize = require('../index');
 var parserOptions = {};
 var outputOptions = {};
 
-// NOTE: should use a cli parser module instead, but we're avoiding the extra'
-// dependency and it's not that hard
+// this could use a cli parser module instead, but we're avoiding the extra
+// dependency and cli parsing isn't that hard
 var argv = process.argv.slice(2);
 var i;
 function useNextArg() {
@@ -60,6 +60,7 @@ for (i = 0; i < argv.length; i++) {
   }
 }
 
+// run stdin through the module to stdout
 process.stdin
 .pipe(new summarize.LogParser(parserOptions))
 .pipe(new summarize.LogOutput(outputOptions))

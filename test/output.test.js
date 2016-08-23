@@ -4,6 +4,8 @@ const tap = require('tap');
 
 const summarize = require('../index');
 
+// test that LogOutput produces a line of output for each chunk recieved
+
 tap.plan(1);
 
 var input = new stream.PassThrough({objectMode: true});

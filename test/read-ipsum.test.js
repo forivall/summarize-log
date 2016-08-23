@@ -5,6 +5,8 @@ const tap = require('tap');
 
 const summarize = require('../index');
 
+// test the basic "read a long input file" test case
+
 tap.plan(3);
 
 var lastObject;
