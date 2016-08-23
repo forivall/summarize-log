@@ -4,7 +4,6 @@ const stream = require('stream');
 const util = require('util');
 const chalk = require('chalk');
 
-module.exports.LogParser = LogParser;
 /**
  * Takes Buffer / string input and outputs objects that report on how many
  * lines, how many bytes, and how long data has been streaming in
@@ -25,8 +24,9 @@ function LogParser(options) {
   this.bytes = options.bytes === undefined ? 0 : options.bytes;
   this.lines = options.lines === undefined ? 0 : options.lines;
 }
-
 util.inherits(LogParser, stream.Transform);
+
+module.exports.LogParser = LogParser;
 
 /**
  * Standard Transform stream _transform
@@ -75,7 +75,6 @@ LogParser.prototype._transform = function _transform(chunk, encoding, callback) 
   });
 };
 
-module.exports.LogOutput = LogOutput;
 /**
  * Takes objects output from the above LogParser and outputs single lines of
  * output for output to cli or a separate log file
@@ -90,8 +89,9 @@ function LogOutput(options) {
   stream.Transform.call(this, options);
   this.chalk = new chalk.constructor({enabled: Boolean(options.color)});
 }
-
 util.inherits(LogOutput, stream.Transform);
+
+module.exports.LogOutput = LogOutput;
 
 /**
  * Standard Transform stream _transform
