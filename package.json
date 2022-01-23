@@ -19,7 +19,7 @@
   "author": "Jordan J Klassen <forivall@gmail.com>",
   "devDependencies": {
     "eslint-config-mxo": "^0.2.0",
-    "nyc": "^8.1.0",
+    "nyc": "^15.1.0",
     "tap": "^6.3.2",
     "xo": "^0.16.0"
   },
